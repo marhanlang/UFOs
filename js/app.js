@@ -1,0 +1,22 @@
+// import the data from data.js
+const tableData = data;
+
+// Reference the HTML table using d3
+var tbody = d3.select("tbody");
+
+function buildTable(data) {
+    //clear existing data
+    tbody.html("");
+//loop through each object in data
+//append row and cells for each value in row
+    data.forEach((dataRow) => {
+        //append row
+        let row = tbody.append("tr");
+        //loop through and add values as table cell(td)
+        Object.values(dataRow).forEach((val) => {
+        let cell = row.append("td");
+        cell.text(val);
+        }
+        );
+    });
+}  
